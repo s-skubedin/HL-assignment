@@ -25,6 +25,10 @@ STRUCTURE CHANGES
 - Moved ApolloProvider and Provider elements out of src/App.js and into src/index.js. I did this because it makes the App.js file easier to read and it's considered best practice.
 - Removed the header tags and all it's child elements in the public/index.js file, then I created a Header component inside of the /src/views. 
 - Removed the public/css/main.css file, and add the css to App.css, which I connected to App.js
+- created ListingImage.js and ListingDetails.js components to store the JSX for those particular div and their children, which is used by both ApartmentTileView.js and ApartmentView.js. This shortends the total amount of code and makes it easier to update that particular part of the code.
+- Added key={index} inside of the span in the ApartmentAmenityView since each unique item in a list needs a unique key
+- Added the owner detail in the apartment view page via the ListingDetails.js file
+- Used conditional rendering in the ListingDetails.js file to show or hide the owner details based on the page being viewed
 
 CLASSNAME CHANGES
 - Removed the divs with the className '_3im4pDXrDfzNRT2AlvLfD6' and '_3Ts2_4uirKsrlm2Qb57Avw' because they were not doing anything

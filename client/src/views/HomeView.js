@@ -13,7 +13,7 @@ class HomeView extends React.Component {
     if (!Object.keys(apartmentsList).length) {
         return <div>Loading...</div>
     }
-
+    console.log(this.props)
     return (
       <div className="container-list container-lg clearfix">
         <div className="col-12 float-left">

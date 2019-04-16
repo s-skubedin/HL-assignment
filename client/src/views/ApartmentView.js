@@ -1,7 +1,8 @@
 import React from 'react';
 import {fetchApartment} from "../actions/apartmentActions";
 import {connect} from "react-redux";
-import ApartmentAmentityView from "./ApartmentAmentityView";
+import ListingImage from './ListingImage';
+import ListingDetails from './ListingDetails';
 
 export class ApartmentView extends React.Component {
   componentWillMount() {
@@ -16,34 +17,15 @@ export class ApartmentView extends React.Component {
       return <div>Loading...</div>
     }
     let image = 'http://localhost:5000/images/apartments/' + apartment.images[0];
+    
     return (
       <div className='container-fl clearfix'>
         <div className='col-12'>
           <div className='view-apartment'>
             <div className="view-apartment-item">
               <div className="view-apartment-item-content">
-                <div className="listing-image">
-                  <div className="media-cover" style={{backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain'}}></div>
-                  <div className="price-overlay">
-                    <span>{apartment.price} €</span>
-                    <span className="price-overlay-monat">
-                      <span className="prive-overlay-monat-text">/ Monat</span>
-                    </span>
-                  </div>
-                </div>
-                <div className="listing-details-container">
-                  <div className="listing-details">
-                    <span className="text-truncate text-first-capitalize">{apartment.title}</span>
-                    <div className="apt-size-text text-truncate">
-                      <span>{apartment.size} m²</span>
-                    </div>
-                    <div className="amenities-container">
-                      <div className="amenities-text text-truncate">
-                        <ApartmentAmentityView apartment={apartment} limit="20" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <ListingImage apartment={apartment} imageUrl={image}/>
+                <ListingDetails apartment={apartment} limit={20} />
               </div>
             </div>
           </div>
